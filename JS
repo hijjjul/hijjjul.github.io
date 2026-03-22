@@ -1,0 +1,94 @@
+document.addEventListener('DOMContentLoaded', () => {
+    // --- Theme Toggle ---
+    const themeToggle = document.getElementById('theme-toggle');
+    const body = document.body;
+
+    // Check for saved theme preference
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+        body.classList.add('dark-theme');
+        themeToggle.checked = true;
+    }
+
+    themeToggle.addEventListener('change', () => {
+        if (themeToggle.checked) {
+            body.classList.add('dark-theme');
+            localStorage.setItem('theme', 'dark');
+        } else {
+            body.classList.remove('dark-theme');
+            localStorage.setItem('theme', 'light');
+        }
+    });
+
+    // --- Visual Impairment Mode ---
+    const visualImpairmentBtn = document.getElementById('visual-impairment-btn');
+
+    visualImpairmentBtn.addEventListener('click', () => {
+        // For this example, we'll just toggle a class on the body.
+        // In a real scenario, you might have multiple modes and more complex logic.
+        body.classList.toggle('visually-impaired-mode');
+
+        // You could also save this preference in localStorage
+        if (body.classList.contains('visually-impaired-mode')) {
+            localStorage.setItem('visualMode', 'enabled');
+        } else {
+            localStorage.removeItem('visualMode');
+        }
+
+        // Update button text to reflect current state (optional)
+        if (body.classList.contains('visually-impaired-mode')) {
+            visualImpairmentBtn.textContent = 'Disable Visual Impairment Mode';
+        } else {
+            visualImpairmentBtn.textContent = 'Enable Visual Impairment Mode';
+        }
+    });
+
+    // Check for saved visual mode preference
+    const savedVisualMode = localStorage.getItem('visualMode');
+    if (savedVisualMode === 'enabled') {
+        body.classList.add('visually-impaired-mode');
+        visualImpairmentBtn.textContent = 'Disable Visual Impairment Mode';
+    }
+
+    // --- Form Submissions (Basic Placeholder) ---
+    // In a real application, these would send data to a server.
+
+    const registerForm = document.getElementById('register-form');
+    if (registerForm) {
+        registerForm.addEventListener('submit', (event) => {
+            event.preventDefault(); // Prevent default form submission
+            const name = document.getElementById('reg-name').value;
+            const email = document.getElementById('reg-email').value;
+            const password = document.getElementById('reg-password').value;
+
+            console.log('Registering:', { name, email, password });
+            // Here you would send data to your backend API for registration
+            alert('Registration form submitted! (Check console for data)');
+        });
+    }
+
+    const loginForm = document.getElementById('login-form');
+    if (loginForm) {
+        loginForm.addEventListener('submit', (event) => {
+            event.preventDefault(); // Prevent default form submission
+            const email = document.getElementById('login-email').value;
+            const password = document.getElementById('login-password').value;
+
+            console.log('Logging in:', { email, password });
+            // Here you would send data to your backend API for login
+            alert('Login form submitted! (Check console for data)');
+        });
+    }
+
+    const forgotPasswordForm = document.getElementById('forgot-password-form');
+    if (forgotPasswordForm) {
+        forgotPasswordForm.addEventListener('submit', (event) => {
+            event.preventDefault(); // Prevent default form submission
+            const email = document.getElementById('forgot-email').value;
+
+            console.log('Initiating password recovery for:', email);
+            // Here you would send the email to your backend to trigger recovery code email
+            alert('Password recovery initiated! (Check console for email)');
+        });
+    }
+});

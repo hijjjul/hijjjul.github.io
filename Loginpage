@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register/Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="settings.html">Settings</a></li>
+                <li><a href="auth.html">Register/Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="auth-section">
+            <h1>Account Management</h1>
+
+            <div class="auth-form-container">
+                <div class="auth-form">
+                    <h2>Register</h2>
+                    <form id="register-form">
+                        <label for="reg-name">Name:</label>
+                        <input type="text" id="reg-name" name="reg-name" required>
+
+                        <label for="reg-email">Email/Login:</label>
+                        <input type="email" id="reg-email" name="reg-email" required>
+
+                        <label for="reg-password">Password (7+ digits, 1+ letter):</label>
+                        <input type="password" id="reg-password" name="reg-password" required pattern="(?=.*\d)(?=.*[a-zA-Z]).{7,}">
+                        <small>Must be at least 7 characters long, contain digits and at least one letter.</small>
+
+                        <button type="submit">Register</button>
+                    </form>
+                </div>
+
+                <div class="auth-form">
+                    <h2>Login</h2>
+                    <form id="login-form">
+                        <label for="login-email">Email/Login:</label>
+                        <input type="email" id="login-email" name="login-email" required>
+
+                        <label for="login-password">Password:</label>
+                        <input type="password" id="login-password" name="login-password" required>
+
+                        <button type="submit">Login</button>
+                    </form>
+                    <p><a href="#forgot-password-section">Forgot Password?</a></p>
+                </div>
+            </div>
+
+            <div id="forgot-password-section" class="auth-form">
+                <h2>Forgot Password</h2>
+                <form id="forgot-password-form">
+                    <label for="forgot-email">Enter your Email/Login:</label>
+                    <input type="email" id="forgot-email" name="forgot-email" required>
+                    <button type="submit">Send Recovery Code</button>
+                </form>
+                <p>A recovery code will be sent to your email.</p>
+                <!-- This is where the code verification and new password entry would appear -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Your Website Name. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

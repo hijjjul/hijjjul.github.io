@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="settings.html">Settings</a></li>
+                <li><a href="auth.html">Register/Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="settings-section">
+            <h1>Website Settings</h1>
+
+            <div class="setting-block">
+                <h2>Visual Impairment Mode</h2>
+                <p>Adjust contrast and font sizes for better readability.</p>
+                <button id="visual-impairment-btn">Enable Visual Impairment Mode</button>
+                <!-- In a real application, this might toggle between predefined modes -->
+            </div>
+
+            <div class="setting-block">
+                <h2>Theme Mode</h2>
+                <p>Switch between light and dark themes.</p>
+                <label class="switch">
+                    <input type="checkbox" id="theme-toggle">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+
+            <div class="setting-block">
+                <h2>User Account Information</h2>
+                <p><strong>Login/Name:</strong> john.doe@example.com</p>
+                <p><strong>Password:</strong> ********</p>
+                <button>Edit Account</button> <!-- This would lead to a separate edit page or modal -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Your Website Name. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
